@@ -6,8 +6,30 @@
     <description>Recent content on Moon&#39;s Walk Blog</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 27 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2026 18:22:06 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dance Story</title>
+      <link>http://localhost:1313/dance/dance-story/</link>
+      <pubDate>Wed, 27 May 2026 18:22:06 +0900</pubDate>
+      <guid>http://localhost:1313/dance/dance-story/</guid>
+      <description>&lt;p&gt;춤추고 싶다&amp;hellip; 아닌가&amp;hellip; ㅋㅋㅋ&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ai Project</title>
+      <link>http://localhost:1313/ai/ai-project/</link>
+      <pubDate>Wed, 27 May 2026 18:21:52 +0900</pubDate>
+      <guid>http://localhost:1313/ai/ai-project/</guid>
+      <description>&lt;p&gt;어렵고 힘들지만 AI와 함께라면 해낼 수 있을 것만 같아&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Dev First</title>
+      <link>http://localhost:1313/posts/dev-first/</link>
+      <pubDate>Wed, 27 May 2026 18:21:31 +0900</pubDate>
+      <guid>http://localhost:1313/posts/dev-first/</guid>
+      <description>&lt;p&gt;힘들고 어렵지만 이것 저것 해보는게 더 좋은것 같아&lt;/p&gt;
+&lt;p&gt;한걸음씩 가보자&lt;/p&gt;</description>
+    </item>
     <item>
       <title>앞으로 해나갈 나의 블로그</title>
       <link>http://localhost:1313/posts/first-post/</link>

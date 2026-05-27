@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Dances on Moon&#39;s Walk Blog</title>
+    <link>http://localhost:1313/dance/</link>
+    <description>Recent content in Dances on Moon&#39;s Walk Blog</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Wed, 27 May 2026 18:22:06 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/dance/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dance Story</title>
+      <link>http://localhost:1313/dance/dance-story/</link>
+      <pubDate>Wed, 27 May 2026 18:22:06 +0900</pubDate>
+      <guid>http://localhost:1313/dance/dance-story/</guid>
+      <description>&lt;p&gt;춤추고 싶다&amp;hellip; 아닌가&amp;hellip; ㅋㅋㅋ&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

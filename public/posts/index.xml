@@ -6,8 +6,16 @@
     <description>Recent content in Posts on Moon&#39;s Walk Blog</description>
     <generator>Hugo</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 27 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 27 May 2026 18:21:31 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dev First</title>
+      <link>http://localhost:1313/posts/dev-first/</link>
+      <pubDate>Wed, 27 May 2026 18:21:31 +0900</pubDate>
+      <guid>http://localhost:1313/posts/dev-first/</guid>
+      <description>&lt;p&gt;힘들고 어렵지만 이것 저것 해보는게 더 좋은것 같아&lt;/p&gt;
+&lt;p&gt;한걸음씩 가보자&lt;/p&gt;</description>
+    </item>
     <item>
       <title>앞으로 해나갈 나의 블로그</title>
       <link>http://localhost:1313/posts/first-post/</link>
