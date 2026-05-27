@@ -19,7 +19,7 @@ theme = 'PaperMod'
 
   [[menu.main]]
   identifier = "dance"
-  name = "춤"
+  name = "Dance"
   url = "/dance/"
   weight = 30
 
