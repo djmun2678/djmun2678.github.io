@@ -1,0 +1,24 @@
+baseURL = 'https://example.org/'
+languageCode = 'ko-kr'
+title = "Moon's Walk Blog"
+theme = 'PaperMod'
+
+[menu]
+
+  [[menu.main]]
+  identifier = "about"
+  name = "About"
+  url = "/about/"
+  weight = 10
+
+  [[menu.main]]
+  identifier = "ai"
+  name = "AI"
+  url = "/ai/"
+  weight = 20
+
+  [[menu.main]]
+  identifier = "startup"
+  name = "Startup"
+  url = "/startup/"
+  weight = 30
