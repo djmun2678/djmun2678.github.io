@@ -18,9 +18,9 @@ theme = 'PaperMod'
   weight = 20
 
   [[menu.main]]
-  identifier = "startup"
-  name = "Startup"
-  url = "/startup/"
+  identifier = "dance"
+  name = "춤"
+  url = "/dance/"
   weight = 30
 
 canonifyURLs = true
