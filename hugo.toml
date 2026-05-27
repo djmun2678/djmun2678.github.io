@@ -22,3 +22,5 @@ theme = 'PaperMod'
   name = "Startup"
   url = "/startup/"
   weight = 30
+
+canonifyURLs = true
