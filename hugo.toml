@@ -29,9 +29,6 @@ theme = 'stack'
   url = "/books/"
   weight = 40
 
-
-canonifyURLs = true
-
 [markup.goldmark.renderer]
 unsafe = true
 
@@ -43,7 +40,8 @@ unsafe = true
 pagerSize = 5
 
 [params]
-mainSections = ["posts", "books", "ai", "dance", "about"]
+mainSections = ["books", "ai", "dance"]
+colorScheme = "auto"
 
 [params.sidebar]
 emoji = "🌙"
@@ -54,6 +52,3 @@ avatar = "/dance1.png"
 math = false
 toc = true
 readingTime = true
-
-
-

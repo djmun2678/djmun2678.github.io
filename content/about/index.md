@@ -6,7 +6,7 @@ date: 2026-05-27T18:00:34+09:00
 
 안녕하세요. Moon's Walk입니다.
 
-<img src="/dance1.png" width="220" style="border-radius: 20px;">
+![profile](/dance1.png)
 
 춤을 전공했고,
 현재는 개발과 AI를 공부하고 있습니다.

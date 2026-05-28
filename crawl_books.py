@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 url = "https://books.toscrape.com/"
 
 response = requests.get(url)
+response.encoding = response.apparent_encoding
 soup = BeautifulSoup(response.text, "html.parser")
 
 books = soup.select("article.product_pod")
