@@ -41,7 +41,10 @@ pagerSize = 5
 
 [params]
 mainSections = ["books", "ai", "dance"]
-colorScheme = "auto"
+
+[params.colorScheme]
+toggle = true
+default = "auto"
 
 [params.sidebar]
 emoji = "🌙"
