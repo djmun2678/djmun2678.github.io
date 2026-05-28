@@ -1,32 +1,49 @@
 /* =========================================================
-   Moon's Walk — Toss-inspired redesign
-   - Pretendard (Korean-friendly variable font, loaded via
-     layouts/partials/head/custom.html for non-blocking render)
-   - Single Toss-blue accent (#3182F6)
-   - Generous whitespace, 16px radius, soft layered shadows
-   - High-contrast typography, minimal color noise
+   Moon's Walk — Toss-style theme override (audit-driven)
+   Stack imports custom.scss LAST so no !important needed
+   (except for elements with inline style like .disqus-container).
+
+   Strategy:
+   1) Redefine stack's CSS custom properties — propagates via the
+      card-style mixin to article cards, section card, pagination,
+      widgets, tag cloud (~70% covered automatically)
+   2) Explicit selectors for non-tokenized parts: single-article
+      .main-article, .left-sidebar ol.menu, .pagination .page-link,
+      .section-card, .article-toc, .disqus-container
+   3) Cross-page View Transitions for Toss-feeling navigation
    ========================================================= */
 
-/* ---------- Light scheme: Toss palette ---------- */
+/* ---------- 1. Light scheme tokens ---------- */
 :root {
-    /* Brand accent */
+    /* Brand */
     --accent-color: #3182F6;
     --accent-color-darker: #1B64DA;
     --accent-color-text: #FFFFFF;
 
     /* Surfaces */
     --body-background: #F9FAFB;
+    --body-text-color: #4E5968;
     --card-background: #FFFFFF;
     --card-background-selected: #F2F4F6;
 
-    /* Text — Toss grayscale */
+    /* Text on cards (Toss grayscale ladder) */
     --card-text-color-main: #191F28;
     --card-text-color-secondary: #4E5968;
     --card-text-color-tertiary: #8B95A1;
-    --body-text-color: #4E5968;
-
-    /* Dividers */
     --card-separator-color: #F2F4F6;
+
+    /* Card geometry */
+    --card-border-radius: 16px;
+    --card-padding: 32px;
+    --small-card-padding: 20px;
+    --tag-border-radius: 999px;
+
+    /* Article typography */
+    --article-font-family: 'Pretendard Variable', Pretendard,
+        -apple-system, BlinkMacSystemFont, system-ui, Roboto,
+        'Helvetica Neue', 'Apple SD Gothic Neo', sans-serif;
+    --article-font-size: 17px;
+    --article-line-height: 1.75;
 
     /* Code */
     --pre-background-color: #F2F4F6;
@@ -34,127 +51,222 @@
     --code-background-color: #F2F4F6;
     --code-text-color: #1B64DA;
 
-    /* Layout tokens */
-    --big-radius: 16px;
-    --small-radius: 10px;
-    --card-padding: 32px;
+    /* Blockquote */
+    --blockquote-border-size: 4px;
+    --blockquote-background-color: #F2F4F6;
 
-    /* Toss-style soft shadows */
+    /* Shadows (l1/l2 only — stack uses just two levels) */
     --shadow-l1: 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-l1-y: 1px;
+    --shadow-l1-blur: 3px;
     --shadow-l2: 0 4px 12px rgba(0, 0, 0, 0.06);
-    --shadow-l3: 0 8px 24px rgba(0, 0, 0, 0.08);
-    --shadow-l4: 0 16px 48px rgba(0, 0, 0, 0.12);
+    --shadow-l2-y: 4px;
+    --shadow-l2-blur: 12px;
+
+    /* Spacing */
+    --section-separation: 40px;
+    --widget-separation: 32px;
+    --main-top-padding: 40px;
+
+    /* Links (stack's accent-link tint — turn off, we use border-bottom) */
+    --link-background-color: transparent;
+    --link-background-opacity: 0;
+    --link-background-opacity-hover: 0;
+
+    /* Tables */
+    --table-border-color: #E5E8EB;
+    --tr-even-background-color: #F9FAFB;
 }
 
-/* ---------- Dark scheme ---------- */
-[data-scheme="dark"] {
+/* Sidebar-local tokens (stack defines these inside .left-sidebar) */
+.left-sidebar {
+    --sidebar-avatar-size: 96px;
+    --sidebar-element-separation: 16px;
+    --emoji-size: 28px;
+    --emoji-font-size: 22px;
+}
+
+/* ---------- 2. Dark scheme tokens ---------- */
+:root[data-scheme="dark"] {
     --accent-color: #4D8DFC;
     --accent-color-darker: #3182F6;
     --accent-color-text: #FFFFFF;
 
     --body-background: #17171C;
+    --body-text-color: #B0B8C1;
     --card-background: #1F1F26;
     --card-background-selected: #2A2A33;
 
     --card-text-color-main: #F3F4F6;
     --card-text-color-secondary: #B0B8C1;
     --card-text-color-tertiary: #6B7684;
-    --body-text-color: #B0B8C1;
-
     --card-separator-color: #2A2A33;
 
     --pre-background-color: #2A2A33;
     --pre-text-color: #F3F4F6;
     --code-background-color: #2A2A33;
     --code-text-color: #93B5FC;
+
+    --blockquote-background-color: #2A2A33;
+
+    --shadow-l1: 0 1px 3px rgba(0, 0, 0, 0.40);
+    --shadow-l1-y: 1px;
+    --shadow-l1-blur: 3px;
+    --shadow-l2: 0 4px 12px rgba(0, 0, 0, 0.45);
+    --shadow-l2-y: 4px;
+    --shadow-l2-blur: 12px;
+
+    --table-border-color: #2A2A33;
+    --tr-even-background-color: #1F1F26;
 }
 
-/* ---------- Typography ---------- */
+/* ---------- 3. Body / typography base ---------- */
 body {
     background-image: none;
     background-color: var(--body-background);
-    font-family: 'Pretendard Variable', Pretendard, -apple-system,
-        BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue',
-        'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
-        'Malgun Gothic', sans-serif;
+    color: var(--body-text-color);
+    font-family: var(--article-font-family);
     letter-spacing: -0.01em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6,
-.site-name, .article-title {
-    font-weight: 700;
+h1, h2, h3, h4, h5, h6 {
+    color: var(--card-text-color-main);
     letter-spacing: -0.025em;
+    font-weight: 700;
 }
 
-.article-content {
-    line-height: 1.75;
-    font-size: 17px;
-}
-
-.article-content p {
-    margin-bottom: 1.4em;
-}
-
-.article-content h2 {
-    margin-top: 2.4em;
-    margin-bottom: 0.8em;
-    font-size: 1.5em;
-}
-
-.article-content h3 {
-    margin-top: 1.8em;
-    margin-bottom: 0.6em;
-    font-size: 1.2em;
-}
-
-/* ---------- Sidebar ---------- */
+/* ---------- 4. Sidebar (left) — fix the cramped menu ---------- */
 .left-sidebar {
     background: var(--card-background);
     border-right: 1px solid var(--card-separator-color);
+    padding-top: 32px;
+    padding-bottom: 32px;
 }
 
-.sidebar-sticky {
-    padding: 32px 24px;
+.left-sidebar .sidebar-sticky {
+    padding-left: 24px;
+    padding-right: 24px;
 }
 
+.site-avatar {
+    margin-bottom: 20px;
+}
+
+.site-avatar .site-logo,
 .site-avatar img {
     border-radius: 50%;
     box-shadow: var(--shadow-l2);
 }
 
+.site-meta {
+    margin-bottom: 28px;
+}
+
 .site-name {
-    font-size: 22px;
-    margin-top: 16px;
     color: var(--card-text-color-main);
+    font-size: 22px;
+    font-weight: 700;
+    margin: 16px 0 4px 0;
 }
 
 .site-description {
     color: var(--card-text-color-tertiary);
     font-size: 14px;
-    margin-top: 4px;
 }
 
-/* Menu links: Toss-style pill rows */
-.menu .site-menu li a {
-    border-radius: 10px;
+/* The actual selector is ol.menu — stack ships zero gap between
+   items so they appear glued together. Add real breathing room. */
+.left-sidebar ol.menu,
+#main-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.left-sidebar ol.menu li,
+#main-menu li {
+    margin: 0;
+}
+
+.left-sidebar ol.menu li a,
+#main-menu li a {
+    display: flex;
+    align-items: center;
     padding: 12px 16px;
-    font-weight: 500;
+    border-radius: 10px;
     color: var(--card-text-color-secondary);
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
     transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.menu .site-menu li a:hover {
+.left-sidebar ol.menu li a:hover,
+#main-menu li a:hover {
     background-color: var(--card-background-selected);
     color: var(--accent-color);
 }
 
-/* ---------- Article cards: the signature Toss feel ---------- */
-.article-list article {
-    border-radius: var(--big-radius);
+.menu-bottom-section {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--card-separator-color);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+#dark-mode-toggle,
+#i18n-switch {
+    border-radius: 10px;
+    padding: 8px 12px;
+    color: var(--card-text-color-secondary);
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+#dark-mode-toggle:hover,
+#i18n-switch:hover {
+    background-color: var(--card-background-selected);
+    color: var(--accent-color);
+}
+
+/* ---------- 5. Main container & footer ---------- */
+main.main {
+    padding-top: var(--main-top-padding);
+}
+
+footer.site-footer {
+    color: var(--card-text-color-tertiary);
+    padding: 32px 0;
+    font-size: 13px;
+}
+
+footer.site-footer .copyright,
+footer.site-footer .powerby {
+    color: inherit;
+}
+
+footer.site-footer a {
+    color: var(--card-text-color-secondary);
+    text-decoration: none;
+}
+
+footer.site-footer a:hover {
+    color: var(--accent-color);
+}
+
+/* ---------- 6. Article list (home + compact + tile) ---------- */
+section.article-list article,
+.article-list--compact article,
+.article-list--tile article {
     background: var(--card-background);
+    border-radius: var(--card-border-radius);
     box-shadow: var(--shadow-l1);
     overflow: hidden;
     margin-bottom: 24px;
@@ -162,9 +274,11 @@ h1, h2, h3, h4, h5, h6,
                 box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.article-list article:hover {
+section.article-list article:hover,
+.article-list--compact article:hover,
+.article-list--tile article:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-l3);
+    box-shadow: var(--shadow-l2);
 }
 
 .article-details {
@@ -172,14 +286,16 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .article-title {
+    color: var(--card-text-color-main);
     font-size: 1.4em;
     line-height: 1.35;
-    margin-bottom: 12px;
-    color: var(--card-text-color-main);
+    font-weight: 700;
+    margin: 0 0 12px 0;
 }
 
 .article-title a {
     color: inherit;
+    text-decoration: none;
     transition: color 0.15s ease;
 }
 
@@ -187,44 +303,236 @@ h1, h2, h3, h4, h5, h6,
     color: var(--accent-color);
 }
 
-.article-list .article-subtitle,
-.article-list .article-content {
-    color: var(--card-text-color-secondary);
-    line-height: 1.6;
-}
-
-/* Meta chips */
-.article-time,
-.article-category,
-.article-tags {
+.article-meta,
+.article-meta .inline-meta {
     color: var(--card-text-color-tertiary);
     font-size: 13px;
 }
 
-.article-category a {
-    display: inline-flex;
-    align-items: center;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: var(--card-background-selected);
+.article-time--published,
+.article-time--reading {
+    color: var(--card-text-color-tertiary);
+}
+
+.article-list .article-subtitle {
     color: var(--card-text-color-secondary);
+    line-height: 1.6;
+}
+
+/* ---------- 7. Single article page (body.article-page) ---------- */
+.article-page .main-article {
+    background: var(--card-background);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--shadow-l2);
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.article-page .main-article .article-header {
+    padding: 40px 40px 24px 40px;
+    border-bottom: 1px solid var(--card-separator-color);
+}
+
+.article-page .main-article .article-header .article-title {
+    font-size: 2em;
+    line-height: 1.25;
+    margin-bottom: 16px;
+}
+
+.article-page .main-article .article-content {
+    padding: 32px 40px 40px 40px;
+    color: var(--card-text-color-main);
+    font-size: var(--article-font-size);
+    line-height: var(--article-line-height);
+}
+
+.article-page .main-article .article-content > * + * {
+    margin-top: 1.4em;
+}
+
+.article-page .main-article .article-content h2 {
+    margin-top: 2.4em;
+    margin-bottom: 0.8em;
+    font-size: 1.5em;
+}
+
+.article-page .main-article .article-content h3 {
+    margin-top: 1.8em;
+    margin-bottom: 0.6em;
+    font-size: 1.2em;
+}
+
+.article-page .main-article .article-content ul,
+.article-page .main-article .article-content ol {
+    padding-left: 1.4em;
+}
+
+.article-page .main-article .article-content li + li {
+    margin-top: 0.4em;
+}
+
+.article-page .main-article .article-footer {
+    padding: 0 40px 32px 40px;
+}
+
+/* TOC */
+.article-toc {
+    background: var(--card-background);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--shadow-l1);
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+
+.article-toc > details > summary,
+.article-toc-title {
+    padding: 16px 20px;
+    font-weight: 600;
+    color: var(--card-text-color-main);
+    cursor: pointer;
+}
+
+.article-toc .toc-nav {
+    padding: 8px 20px 16px 20px;
+}
+
+.article-toc .toc-nav a {
+    color: var(--card-text-color-secondary);
+    text-decoration: none;
+}
+
+.article-toc .toc-nav a:hover {
+    color: var(--accent-color);
+}
+
+/* ---------- 8. Section/taxonomy list pages (books/, categories/) ---------- */
+.section-card {
+    background: var(--card-background);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--shadow-l1);
+    padding: 32px;
+    margin-bottom: 24px;
+}
+
+.section-card .section-details .section-count {
+    color: var(--card-text-color-tertiary);
+    font-size: 13px;
+    margin: 0 0 6px 0;
+}
+
+.section-card .section-details .section-term {
+    color: var(--card-text-color-main);
+    font-size: 1.8em;
+    margin: 0 0 8px 0;
+}
+
+.section-card .section-details .section-description {
+    color: var(--card-text-color-secondary);
+    margin: 0;
+}
+
+.section-title {
+    color: var(--card-text-color-main);
+    margin-bottom: 16px;
+}
+
+/* ---------- 9. Pagination ---------- */
+nav.pagination {
+    background: var(--card-background);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--shadow-l1);
+    padding: 12px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+}
+
+nav.pagination .page-link {
+    color: var(--card-text-color-secondary);
+    background: transparent;
+    border-radius: 10px;
+    padding: 8px 14px;
+    min-width: 36px;
+    text-align: center;
+    text-decoration: none;
     font-weight: 500;
     transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.article-category a:hover {
+nav.pagination .page-link:hover {
+    background: var(--card-background-selected);
+    color: var(--accent-color);
+}
+
+nav.pagination .page-link.current {
     background: var(--accent-color);
     color: var(--accent-color-text);
 }
 
-/* ---------- Single article page ---------- */
-.main-article {
-    border-radius: var(--big-radius);
-    box-shadow: var(--shadow-l2);
-    background: var(--card-background);
+nav.pagination .page-link.disabled {
+    color: var(--card-text-color-tertiary);
+    pointer-events: none;
+    opacity: 0.6;
 }
 
-/* Inline code: Toss-blue accent tint */
+.btn.btn-primary {
+    background: var(--accent-color);
+    color: var(--accent-color-text);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.btn.btn-primary:hover {
+    background: var(--accent-color-darker);
+}
+
+/* ---------- 10. Tags ---------- */
+.tagCloud .tagCloud-tags a,
+.article-tags a {
+    background: var(--card-background);
+    color: var(--card-text-color-secondary);
+    border-radius: var(--tag-border-radius);
+    padding: 6px 14px;
+    box-shadow: var(--shadow-l1);
+    text-decoration: none;
+    transition: transform 0.15s ease, background-color 0.15s ease,
+                color 0.15s ease;
+}
+
+.tagCloud .tagCloud-tags a:hover,
+.article-tags a:hover {
+    background: var(--accent-color);
+    color: var(--accent-color-text);
+    transform: translateY(-1px);
+}
+
+/* ---------- 11. Widgets ---------- */
+.widget {
+    background: var(--card-background);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--shadow-l1);
+    padding: 24px;
+    margin-bottom: var(--widget-separation);
+}
+
+.widget .widget-title {
+    color: var(--card-text-color-main);
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.widget .widget-icon {
+    color: var(--accent-color);
+}
+
+/* ---------- 12. Inline article content elements ---------- */
 .article-content :not(pre) > code {
     padding: 2px 8px;
     border-radius: 6px;
@@ -233,18 +541,17 @@ h1, h2, h3, h4, h5, h6,
     font-size: 0.9em;
 }
 
-/* Code blocks */
 .article-content pre {
-    border-radius: var(--small-radius);
+    border-radius: 10px;
     padding: 20px 24px;
     box-shadow: var(--shadow-l1);
+    overflow-x: auto;
 }
 
-/* Blockquotes: Toss-style left accent bar */
 .article-content blockquote {
-    border-left: 4px solid var(--accent-color);
-    background: var(--card-background-selected);
-    border-radius: 0 var(--small-radius) var(--small-radius) 0;
+    border-left: var(--blockquote-border-size) solid var(--accent-color);
+    background: var(--blockquote-background-color);
+    border-radius: 0 10px 10px 0;
     padding: 16px 20px;
     margin: 1.5em 0;
     color: var(--card-text-color-secondary);
@@ -254,7 +561,6 @@ h1, h2, h3, h4, h5, h6,
     margin-bottom: 0.5em;
 }
 
-/* Inline links: subtle underline that activates on hover */
 .article-content a {
     color: var(--accent-color);
     text-decoration: none;
@@ -266,57 +572,23 @@ h1, h2, h3, h4, h5, h6,
     border-bottom-color: var(--accent-color);
 }
 
-/* Images */
 .article-content img {
     max-width: 100%;
     height: auto;
-    border-radius: var(--small-radius);
-    box-shadow: var(--shadow-l1);
-}
-
-/* ---------- Tags ---------- */
-.tags li a {
-    border-radius: 999px;
-    padding: 6px 14px;
-    background: var(--card-background);
-    color: var(--card-text-color-secondary);
-    box-shadow: var(--shadow-l1);
-    transition: transform 0.15s ease, background-color 0.15s ease,
-                color 0.15s ease;
-}
-
-.tags li a:hover {
-    background: var(--accent-color);
-    color: var(--accent-color-text);
-    transform: translateY(-1px);
-}
-
-/* ---------- Pagination ---------- */
-.article-pagination {
-    border-radius: var(--big-radius);
-    box-shadow: var(--shadow-l1);
-    overflow: hidden;
-    background: var(--card-background);
-}
-
-/* ---------- Dark-mode toggle ---------- */
-#dark-mode-toggle {
     border-radius: 10px;
-    transition: background-color 0.15s ease;
+    box-shadow: var(--shadow-l1);
 }
 
-#dark-mode-toggle:hover {
-    background-color: var(--card-background-selected);
+/* Disqus container has inline padding — needs !important */
+.disqus-container {
+    background: var(--card-background);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--shadow-l1);
+    padding: 32px !important;
+    margin-top: 24px;
 }
 
-/* ---------- Footer ---------- */
-.site-footer {
-    color: var(--card-text-color-tertiary);
-    padding: 24px 0;
-    font-size: 13px;
-}
-
-/* ---------- Mobile polish ---------- */
+/* ---------- 13. Mobile polish ---------- */
 @media (max-width: 1024px) {
     .left-sidebar {
         border-right: none;
@@ -329,50 +601,68 @@ h1, h2, h3, h4, h5, h6,
         padding-left: 16px;
         padding-right: 16px;
     }
-
     .article-details {
         padding: 20px 22px;
     }
-
-    .article-content {
+    .article-page .main-article .article-header {
+        padding: 28px 24px 20px 24px;
+    }
+    .article-page .main-article .article-header .article-title {
+        font-size: 1.5em;
+    }
+    .article-page .main-article .article-content {
+        padding: 24px 24px 32px 24px;
         font-size: 16px;
         line-height: 1.7;
     }
-
-    .article-title {
-        font-size: 1.25em;
+    .article-page .main-article .article-footer {
+        padding: 0 24px 24px 24px;
+    }
+    .section-card {
+        padding: 24px;
     }
 }
 
-/* ---------- Subtle entrance animation ---------- */
-@keyframes fade-in-up {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* ---------- 14. View Transitions (cross-page Toss-style fade) ---------- */
+@view-transition {
+    navigation: auto;
 }
 
-.article-list article {
-    animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+::view-transition-old(root) {
+    animation: 200ms cubic-bezier(0.4, 0, 0.2, 1) both vt-fade-out;
 }
 
-.article-list article:nth-child(1) { animation-delay: 0.05s; }
-.article-list article:nth-child(2) { animation-delay: 0.10s; }
-.article-list article:nth-child(3) { animation-delay: 0.15s; }
-.article-list article:nth-child(4) { animation-delay: 0.20s; }
-.article-list article:nth-child(5) { animation-delay: 0.25s; }
+::view-transition-new(root) {
+    animation: 260ms cubic-bezier(0.16, 1, 0.3, 1) both vt-fade-in-up;
+}
 
-/* Respect reduced-motion preference */
+@keyframes vt-fade-out {
+    to   { opacity: 0; transform: translateY(-4px); }
+}
+
+@keyframes vt-fade-in-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- 15. Initial card stagger ---------- */
+section.article-list article {
+    animation: vt-fade-in-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+section.article-list article:nth-of-type(1) { animation-delay: 0.04s; }
+section.article-list article:nth-of-type(2) { animation-delay: 0.08s; }
+section.article-list article:nth-of-type(3) { animation-delay: 0.12s; }
+section.article-list article:nth-of-type(4) { animation-delay: 0.16s; }
+section.article-list article:nth-of-type(5) { animation-delay: 0.20s; }
+
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-    .article-list article {
-        animation: none;
-    }
     *, *::before, *::after {
-        transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+    section.article-list article {
+        animation: none;
     }
 }
