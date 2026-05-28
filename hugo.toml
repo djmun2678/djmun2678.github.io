@@ -24,3 +24,6 @@ theme = 'PaperMod'
   weight = 30
 
 canonifyURLs = true
+
+[markup.goldmark.renderer]
+unsafe = true
