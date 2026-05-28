@@ -1,12 +1,11 @@
 /* =========================================================
    Moon's Walk — Toss-inspired redesign
-   - Pretendard (Korean-friendly variable font)
+   - Pretendard (Korean-friendly variable font, loaded via
+     layouts/partials/head/custom.html for non-blocking render)
    - Single Toss-blue accent (#3182F6)
    - Generous whitespace, 16px radius, soft layered shadows
    - High-contrast typography, minimal color noise
    ========================================================= */
-
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
 
 /* ---------- Light scheme: Toss palette ---------- */
 :root {
