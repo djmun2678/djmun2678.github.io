@@ -1,37 +1,83 @@
+/* =========================================================
+   Moon's Walk — custom theme overrides
+   - Drop the heavy fixed background image (broke mobile +
+     killed contrast). Use a subtle theme-aware tint instead.
+   - Let stack's built-in CSS variables drive colors so light
+     and dark modes both stay readable.
+   ========================================================= */
+
+:root {
+    /* Soft lavender accent that nods at the gradient vibe
+       without the readability tax. */
+    --body-background: #f5f3fb;
+    --accent-color: #7c5cff;
+    --accent-color-darker: #5a3fd6;
+    --accent-color-text: #ffffff;
+}
+
+[data-scheme="dark"] {
+    --body-background: #15141d;
+    --accent-color: #b4a4ff;
+    --accent-color-darker: #8e7aff;
+    --accent-color-text: #15141d;
+}
+
+/* Very subtle diagonal gradient — keeps the "dance" feel
+   but stays well below the contrast threshold. */
 body {
-    background-image: url('/bg3.png');
+    background-image:
+        linear-gradient(135deg,
+            rgba(124, 92, 255, 0.06) 0%,
+            rgba(124, 92, 255, 0.00) 40%,
+            rgba(180, 164, 255, 0.06) 100%);
+    background-attachment: scroll; /* fixed breaks iOS Safari */
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    min-height: 100vh;
 }
 
-/* 왼쪽 사이드바 글씨 흰색 */
-.left-sidebar,
-.left-sidebar a,
-.left-sidebar span,
-.left-sidebar p,
-.site-name,
-.site-description,
-.menu,
-.menu a {
-    color: white !important;
+[data-scheme="dark"] body {
+    background-image:
+        linear-gradient(135deg,
+            rgba(124, 92, 255, 0.12) 0%,
+            rgba(21, 20, 29, 0.00) 40%,
+            rgba(180, 164, 255, 0.10) 100%);
 }
 
-/* 맨 아래 Footer 글씨 흰색 */
-.site-footer,
-.site-footer a,
-.site-footer span,
-.site-footer p {
-    color: white !important;
+/* Sidebar: let stack's own colors handle text. No more
+   forced white-on-image, which inverted in light mode. */
+
+/* Article cards: rounded + soft shadow for a friendlier feel. */
+.article-list article {
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* 카드 안 글씨는 검정 유지 */
-.article-list article,
-.article-list article a,
-.article-title,
-.article-subtitle,
-.article-time,
-.article-category,
-.article-content {
-    color: black !important;
+.article-list article:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+}
+
+[data-scheme="dark"] .article-list article {
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Mobile polish: tighten horizontal padding so cards don't
+   feel cramped against the viewport edge. */
+@media (max-width: 768px) {
+    .main-container {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .article-list article {
+        border-radius: 10px;
+    }
+}
+
+/* About-page profile image: make it responsive so it doesn't
+   overflow on mobile. */
+.article-content img {
+    max-width: 100%;
+    height: auto;
 }

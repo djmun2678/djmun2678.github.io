@@ -8,7 +8,7 @@ draft: false
 
 ## 책 정보
 
-- 가격: Â£51.77
+- 가격: £51.77
 - 재고: In stock
 - 평점: Three
 

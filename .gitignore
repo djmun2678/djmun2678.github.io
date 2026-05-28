@@ -1,0 +1,26 @@
+# Hugo build output
+public/
+resources/
+.hugo_build.lock
+
+# Stale build artifacts that were accidentally committed at the repo root
+/index.html
+/index.xml
+/404.html
+/sitemap.xml
+/posts/
+/page/
+/categories/
+/tags/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
