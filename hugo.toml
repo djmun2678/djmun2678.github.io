@@ -27,7 +27,7 @@ canonifyURLs = true
 
 [markup.goldmark.renderer]
 unsafe = true
-services:
+
+[services]
   [services.googleAnalytics]
     ID = "G-HR9QFJ1QCD"
-    
