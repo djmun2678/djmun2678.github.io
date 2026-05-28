@@ -1,13 +1,9 @@
-
 ---
 title: "Moon's Walk"
 draft: false
 ---
 
-# Moon's Walk
+## Moon's Walk
 
-Dance · AI · Development
-
-춤에서 시작해  
-AI와 개발을 배우며  
-생각과 기록을 남기는 공간입니다.
+춤을 전공했고, 지금은 개발과 AI를 배우고 있습니다.
+공부하면서 배운 것들을 기록하는 공간입니다.
