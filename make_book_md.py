@@ -6,6 +6,8 @@ import os
 import subprocess
 import time
 
+WAIT_TIME = 10
+
 url = "https://books.toscrape.com/"
 
 def clean_filename(text):
@@ -63,6 +65,6 @@ draft: false
 
     if i < 10:
         print("5분 기다리는 중...")
-        time.sleep(300)
+        time.sleep(WAIT_TIME)
 
 print("총 10개 글 업로드 완료!")
