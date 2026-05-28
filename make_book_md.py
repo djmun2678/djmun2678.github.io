@@ -6,7 +6,7 @@ import os
 import subprocess
 import time
 
-WAIT_TIME = 10
+WAIT_TIME = 300
 
 url = "https://books.toscrape.com/"
 
@@ -22,7 +22,7 @@ books = soup.select("article.product_pod")
 
 os.makedirs("content/posts", exist_ok=True)
 
-for i, book in enumerate(books[:10], start=1):
+for i, book in enumerate(books[:5], start=1):
     title = book.select_one("h3 a")["title"]
     price = book.select_one(".price_color").get_text(strip=True)
     stock = book.select_one(".availability").get_text(strip=True)
@@ -63,8 +63,8 @@ draft: false
 
     print(f"{i}번째 글 GitHub 업로드 완료")
 
-    if i < 10:
+    if i < 5:
         print("5분 기다리는 중...")
         time.sleep(WAIT_TIME)
 
-print("총 10개 글 업로드 완료!")
+print("총 5개 글 업로드 완료!")
