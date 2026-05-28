@@ -27,3 +27,4 @@ canonifyURLs = true
 
 [markup.goldmark.renderer]
 unsafe = true
+googleAnalytics = "G-HR9QFJ1QCD"
