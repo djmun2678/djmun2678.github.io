@@ -1,50 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Moon&#39;s Walk on Moon&#39;s Walk Blog</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content in Moon&#39;s Walk on Moon&#39;s Walk Blog</description>
-    <generator>Hugo</generator>
-    <language>ko-kr</language>
-    <lastBuildDate>Wed, 27 May 2026 18:22:06 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Dance Story</title>
-      <link>http://localhost:1313/dance/dance-story/</link>
-      <pubDate>Wed, 27 May 2026 18:22:06 +0900</pubDate>
-      <guid>http://localhost:1313/dance/dance-story/</guid>
-      <description>&lt;p&gt;춤추고 싶다&amp;hellip; 아닌가&amp;hellip; ㅋㅋㅋ&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Ai Project</title>
-      <link>http://localhost:1313/ai/ai-project/</link>
-      <pubDate>Wed, 27 May 2026 18:21:52 +0900</pubDate>
-      <guid>http://localhost:1313/ai/ai-project/</guid>
-      <description>&lt;p&gt;어렵고 힘들지만 AI와 함께라면 해낼 수 있을 것만 같아&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Dev First</title>
-      <link>http://localhost:1313/posts/dev-first/</link>
-      <pubDate>Wed, 27 May 2026 18:21:31 +0900</pubDate>
-      <guid>http://localhost:1313/posts/dev-first/</guid>
-      <description>&lt;p&gt;힘들고 어렵지만 이것 저것 해보는게 더 좋은것 같아&lt;/p&gt;
-&lt;p&gt;한걸음씩 가보자&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>앞으로 해나갈 나의 블로그</title>
-      <link>http://localhost:1313/posts/first-post/</link>
-      <pubDate>Wed, 27 May 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/first-post/</guid>
-      <description>&lt;p&gt;안녕하세요 ~&lt;/p&gt;
-&lt;p&gt;이건 제가 처음 만드는 Moons의 블로그 입니다~&lt;/p&gt;
-&lt;p&gt;앞으로 :&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;개발 공부&lt;/li&gt;
-&lt;li&gt;AI 프로젝트&lt;/li&gt;
-&lt;li&gt;춤&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;그리고 여러가지 잡다한 기록들을 정리하기 위해 만든 개인 블로그입니다.&lt;/p&gt;
-&lt;p&gt;배우고 경험한 것들을 천천히 기록해나가려고 합니다.&lt;/p&gt;</description>
-    </item>
-  </channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Moon&#39;s Walk on Moon&#39;s Walk Blog</title>
+        <link>http://localhost:1313/</link>
+        <description>Recent content in Moon&#39;s Walk on Moon&#39;s Walk Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko-kr</language>
+        <lastBuildDate>Thu, 28 May 2026 18:13:00 +0900</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>Tipping the Velvet</title>
+            <link>http://localhost:1313/posts/tipping-the-velvet/</link>
+            <pubDate>Thu, 28 May 2026 18:13:00 +0900</pubDate>
+            <guid>http://localhost:1313/posts/tipping-the-velvet/</guid>
+            <description>&lt;h1 id=&#34;tipping-the-velvet&#34;&gt;Tipping the Velvet&#xD;&#xA;&lt;/h1&gt;&lt;h2 id=&#34;책-정보&#34;&gt;책 정보&#xD;&#xA;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;가격: Â£53.74&lt;/li&gt;&#xA;&lt;li&gt;재고: In stock&lt;/li&gt;&#xA;&lt;li&gt;평점: One&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;정리&#34;&gt;정리&#xD;&#xA;&lt;/h2&gt;&lt;p&gt;이 글은 자동으로 생성된 책 리뷰 글입니다.&lt;/p&gt;&#xA;</description>
+        </item><item>
+            <title>A Light in the Attic</title>
+            <link>http://localhost:1313/posts/a-light-in-the-attic/</link>
+            <pubDate>Thu, 28 May 2026 18:07:58 +0900</pubDate>
+            <guid>http://localhost:1313/posts/a-light-in-the-attic/</guid>
+            <description>&lt;h1 id=&#34;a-light-in-the-attic&#34;&gt;A Light in the Attic&#xD;&#xA;&lt;/h1&gt;&lt;h2 id=&#34;책-정보&#34;&gt;책 정보&#xD;&#xA;&lt;/h2&gt;&lt;ul&gt;&#xA;&lt;li&gt;가격: Â£51.77&lt;/li&gt;&#xA;&lt;li&gt;재고: In stock&lt;/li&gt;&#xA;&lt;li&gt;평점: Three&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;정리&#34;&gt;정리&#xD;&#xA;&lt;/h2&gt;&lt;p&gt;이 글은 자동으로 생성된 책 리뷰 글입니다.&lt;/p&gt;&#xA;</description>
+        </item></channel>
 </rss>

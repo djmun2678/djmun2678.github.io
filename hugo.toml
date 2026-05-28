@@ -1,7 +1,7 @@
 baseURL = 'https://djmun2678.github.io/'
 languageCode = 'ko-kr'
 title = "Moon's Walk Blog"
-theme = 'PaperMod'
+theme = 'stack'
 
 [menu]
 
@@ -31,3 +31,18 @@ unsafe = true
 [services]
   [services.googleAnalytics]
     ID = "G-HR9QFJ1QCD"
+
+[pagination]
+pagerSize = 5
+
+[params]
+mainSections = ["posts"]
+
+[params.sidebar]
+emoji = "🌙"
+subtitle = "개발 · AI · 춤 기록"
+
+[params.article]
+math = false
+toc = true
+readingTime = true
