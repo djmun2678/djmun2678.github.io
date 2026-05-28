@@ -23,6 +23,13 @@ theme = 'stack'
   url = "/dance/"
   weight = 30
 
+  [[menu.main]]
+  identifier = "books"
+  name = "Books"
+  url = "/books/"
+  weight = 40
+
+
 canonifyURLs = true
 
 [markup.goldmark.renderer]
@@ -36,13 +43,17 @@ unsafe = true
 pagerSize = 5
 
 [params]
-mainSections = ["posts"]
+mainSections = ["posts", "books", "ai", "dance", "about"]
 
 [params.sidebar]
 emoji = "🌙"
-subtitle = "개발 · AI · 춤 기록"
+subtitle = "Dance · AI · Development"
+avatar = "/dance1.png"
 
 [params.article]
 math = false
 toc = true
 readingTime = true
+
+
+

@@ -6,5 +6,13 @@ title = 'Dance Story'
 
 
 
-춤추고 싶다... 아닌가... ㅋㅋㅋ
+## Dance
+
+음악 듣고
+
+움직이고
+
+춤을 추고
+
+Let's Dance!
 

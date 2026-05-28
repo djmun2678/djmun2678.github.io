@@ -1,0 +1,37 @@
+body {
+    background-image: url('/bg3.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* 왼쪽 사이드바 글씨 흰색 */
+.left-sidebar,
+.left-sidebar a,
+.left-sidebar span,
+.left-sidebar p,
+.site-name,
+.site-description,
+.menu,
+.menu a {
+    color: white !important;
+}
+
+/* 맨 아래 Footer 글씨 흰색 */
+.site-footer,
+.site-footer a,
+.site-footer span,
+.site-footer p {
+    color: white !important;
+}
+
+/* 카드 안 글씨는 검정 유지 */
+.article-list article,
+.article-list article a,
+.article-title,
+.article-subtitle,
+.article-time,
+.article-category,
+.article-content {
+    color: black !important;
+}
