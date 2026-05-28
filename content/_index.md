@@ -1,13 +1,10 @@
-
 ---
 title: "Moon's Walk"
 draft: false
 ---
 
-# Moon's Walk
+## 춤추던 사람이 코드를 배우는 중입니다.
 
-Dance · AI · Development
-
-춤에서 시작해  
-AI와 개발을 배우며  
-생각과 기록을 남기는 공간입니다.
+스튜디오에서 IDE까지 —
+새로 익히는 모든 것을
+하나씩 적어 두는 공간입니다.
