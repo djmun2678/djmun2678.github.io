@@ -1,6 +1,6 @@
 ---
 title: "A Light in the Attic"
-date: 2026-05-28T17:57:23+09:00
+date: 2026-05-28T17:58:23+09:00
 draft: false
 ---
 
