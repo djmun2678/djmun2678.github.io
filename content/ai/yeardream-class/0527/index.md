@@ -11,7 +11,7 @@ draft: false
 
 MY구글 드라이브 : https://drive.google.com/drive/folders/1PdrtxM0H84AnAdIXyH4O925Ma7JDhAgS
 
-# 0526 수업 정리
+# 0527 수업 정리
 
 - [수업 내용 정리 - 보기 / 다운로드](files/2026_05_27_수업.pdf)
 

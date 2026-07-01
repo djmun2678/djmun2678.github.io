@@ -16,6 +16,7 @@ MY구글드라이브 : https://drive.google.com/drive/folders/1eujclyTgw0Oi1IUq2
 여기부터 Notion에서 가져온 내용...
 
 날짜: 2026년 5월 28일 → 2026년 5월 28일
+
 구글드라이브: https://drive.google.com/drive/folders/1jymlT8fd3nK16Wbtr2BGTXzFFFshVilb?usp=sharing
 
 상태: 완료
@@ -86,7 +87,7 @@ pwd
 - 참고만 하세요
 
 ---------------------------------
-# 0526 수업 정리
+# 0528 수업 정리
 
 - [☀️ 오전 수업 내용 정리 - 보기 / 다운로드](files/260528_오전수업.pdf)
 - [🌙 오후 수업 내용 정리 - 보기 / 다운로드](files/260528_오후수업.pdf)
