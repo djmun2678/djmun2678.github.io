@@ -1,0 +1,207 @@
+[1교시]
+
+금요일 - 바이브 코딩
+
+y문
+모듈
+
+깃허브
+
+
+
+git clone + (깃허브)링크
+-> 다운로드
+
+code . => vs code 파일 실행
+
+uv_project_settings
+폴더 안에 파일들 -> girhub에서 다운받은 폴더에 옮겨서 병합
+
+어제는 됬는데 안되면
+uv cache clean
+- 새로고침 느낌
+
+uv sync
+(싱크 맞추기)
+
+uv run python ./check_env.py
+파이썬 실행
+
+uv run jupyter lab
+쥬피터 랩 실행
+
+
+ctrl + c
+종료
+
+
+프로젝트 디렉토리에서 Git  명령어 실행
+git add .
+git commit -m"update" -> 업데이트 내역
+git push -> 업로드
+
+
+
+한 파일의 크기가 100MB가 넘어가면 업로드가 안됨 (push가 안됨)
+
+
+지역 변수
+전역 변수
+
+init
+- 시작점 
+
+Docstring - 매뉴얼
+
+
+모듈 확인하자
+모듈 모아서 패키지
+-> 폴더 -> 프로젝트
+
+
+# 속성에 접근: 인스턴스.속성명
+print(f"{alice.name}의 직책: {alice.role}, 연봉: {alice.salary}만원")
+print(f"{bob.name}의 직책: {bob.role}, 연봉: {bob.salary}만원")
+
+
+
+
+
+
+print(f”안녕하세요! 저는 {self.role} {self.name}입니다.”)
+
+print(f"안녕하세요! 저는 {self.role} {self.name}입니다.")
+
+
+
+클래스
+앞글자 대문자
+다음
+def __init__ 이 들어감
++ 데이터 (사람의 보유 성질, 이름, 직책, 연봉 등)
+
+행동 정의
+def (메서드 써서 정의)
+
+
+
+
+클래스 변수 / 인스턴스 변수
+ㄴ더 큰 의미(회사 명) ㄴ 변할 수 있는 변수(팀 명수 등)
+	클래스 바뀌면 - 인스턴스 같이 바뀜
+
+
+
+__str__
+__repr__
+
+
+클래스 메서드
+정적 메서드
+
+
+
+
+
+
+alice = TeamMember(name = "Alice", role = "시니어 개발자", salary=6000)
+
+bob = TeamMember(name = "Bob", role = "주니어 기획자", salary=3800)
+
+
+
+
+ @classmethod
+    def from_string(cls, member_string):
+        """
+        '이름-직책-연봉' 형식의 문자열로 팀원을 생성하는 대체 생성자
+        예) "Alice-시니어 개발자-6000"
+        """
+        name, role, salary = member_string.split("-")
+        return cls(name, role, int(salary))   # cls() = TeamMember()
+
+
+
+
+금요일 테스트
+클래스 만들기
+(상속이 들어간 내용으로)
+
+
+
+상속
+-> 위에 클래스에서 받아서 그대로 사용할 수 있음
+
+
+부모 매서드 오버라이딩 -> 재정의 한다
+ㄴ 부모 매서드를 가져와서 하위 클래스가 조금씩 수정해서 재정의 할 수 있게 된다.
+
+
+
+상단에 클래스로 거의 시작한다
+
+
+모듈
+
+거의 
+랜덤이라는 모듈
+class
+
+
+AI 코드 받아올때 공식문서 참조해줘 라고 해야 안그러면 환각이던 이상한 코드 다 가져옴
+
+
+
+
+
+
+독스리 - 설명서, 메뉴얼
+
+
+
+
+강의내용 정리 블로그들
+
+
+https://horangzzang.duckdns.org/notes/
+비번 : yeardream6th
+
+
+https://github.com/yw8837/yearstudy_wiki
+
+
+https://www.yeardreamhub.kr/
+
+
+개발환경
+uv sync
+
+아예 백지상태일때는 순차적으로
+
+vi .pypirc
+-> vi ~/.pypirc => 위치 확인해야함
+cd ~
+                                                                                          
+ur run pytest tests/test_arithmetic.py -v
+
+배포를 할때
+
+배포는 점진적으로 발전시키는 것
+
+==> version 1.		사칙연산만 가능
+===> 사칙연산만 가능한 상태...
+==> 기능 제안 받기
+==> 이러한 상황에서는 어? 안됩니다.!
+	 ==> 버그 이슈 제보도
+
+기초 마스터 하기
+
+*개발환경세트 !*
+
+
+
+
+
+
+
+

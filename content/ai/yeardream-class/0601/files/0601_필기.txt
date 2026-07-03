@@ -1,0 +1,337 @@
+[1교시]
+
+깃 허브에서 - 새로 만들고
+-노션에 링크 복붙 -> C드라이브에서 git bash 들어가서 -> git clone (링크 붙여넣기)
+(그러면 C드라이브에 폴더가 만들어짐)
+
+깃배쉬에 $ code . 치면 코드 열림
+
+README.md
+
+git --version
+git add .
+git commit -m "my 1st comit"
+
+
+
+
+uv 옮겨놓고
+
+
+uv sync
+
+
+uv run python check_env.py
+
+
+uv run jupyter lab
+
+
+Github 연동 ==>
+개발 작업 팀으로 개발 작업 ==> 소스코드 공유
+소스코드 공유? ==> Github를 통해서 공유
+
+개발환경 - 여러 장소에서 하나로 공유해서
+
+
+error: uv trampoline failed to canonicalize script path
+
+
+- 위 에러는 다음과 같이 해결하세요 (git-bash에서)
+
+
+rm -rf .venv
+uv cache clean
+uv sync
+uv run jupyter lab
+
+
+실습 노트
+
+for 문
+
+sum_val = 0 # 현재 기본 값 0
+
+for i in [1, 3, 5,]
+
+ print(sum_val, i)
+sum_val = sum_val + i
+
+print("합계 : ", sum_val)
+
+값) 	0 1
+	1 3
+	4 5
+	합계 : 9
+
+
+합계 - for __ in 000
+평균 - len()
+
+*들여쓰기 확인 !!!*
+
+
+구구단
+
+fod i in range(1, 10) :
+	print(dan, "X", i, "=", dan * i)
+
+
+
+
+While 문
+
+개발자 : 프로그램은 특별한 이유가 없으면, 계속 실행
+분석가 : 데이터가 있어야 함
+- 엑셀 파일 획득 => 전체 행의 갯수/열의 갯수가 정해짐
+- 범위가 있다는 뜻
+ + for loop 사용하라는 뜻
+
+
+# break 예제: 1~5 출력 후 종료
+i = 1
+while 1 > 0:
+  print(i) 
+  if i >= 5:
+    break   # i가 5 이상이 되면 반복문 탈출
+  i = i + 1
+
+print("종료")
+
+
+dan = 4
+i = 1
+
+while i <= 9:
+	print(f"{dan} x {i} = {dan * i}")
+	i = i + 1
+값) 4 x 1 = 4
+     4 x 2 = 9
+	 ...
+     4 x 9 = 36
+
+
+메써드 = 함수 (명령어)
+
+count
+대문자, 소문자 구분 꼭 해야한다
+
+GPT 물어볼때 (함수 관련 물어볼때) 관련(공식) 문서 같이 해서 알아봐야 함
+
+- str.split(c), split() 관련 Documentaion 링크도 같이 출력해주세요
+
+
+
+
+# 빈 문자열로 이어붙이기
+chars = ["e", "l", "i", "c", "e"]
+print(str.join("",chars))
+
+# 예상 결과값 : elice
+# 주어진 힌트를 통해서 코드 작성 => 실패시
+# => 공식문서 찾기, 이해하기 => 다시 코드 작성
+
+# 화살표(→)로 이어붙이기
+stations = ["서울", "대전", "대구"]
+
+# 예상 결과값 : 서울 -> 대전 -> 대구
+
+
+
+# 실습: 아래 문장을 단어 리스트로 분리한 후
+#        각 단어 앞뒤에 ★ 를 붙여 다시 합치세요
+sentence = "파이썬 공부 열심히 하자"
+
+words = sentence.split()
+print("단어 리스트:", words)
+
+# 각 단어에 ★ 붙이기
+new_words = []
+for w in words:
+  # print(w)
+  new_words.append("★" + w + "★")
+
+print("결과:", " ".join(new_words))
+# 예상 출력값
+# 단어 리스트: ['파이썬', '공부', '열심히', '하자']
+# 결과: ★파이썬★ ★공부★ ★열심히★ ★하자★
+
+
+list => []
+tuple => ()
+ ㄴ개인정보 같은 바뀌면 안되는 중요 정보 표기 할때
+
+
+
+# 나만의 프로필 딕셔너리를 만들어보세요
+profile = {
+    "이름": "홍길동",
+    "나이": 20,
+    "전공": "컴퓨터공학"
+}
+
+# 1) '취미' 키를 추가
+profile["취미"] = "코딩"
+
+# 2) '나이'를 21로 수정
+profile["나이"] = 21
+
+# 3) 최종 프로필 출력
+print(profile)
+
+
+
+
+
+
+
+my_dict = {“a”: 11, “b”: 13, “c”: 17}
+
+
+# items()가 더 간결하고 Pythonic!
+for key, value in my_dict.items():
+  print(f"key: {key}, value: {value}")
+
+
+# 아래 성적 딕셔너리를 분석하세요
+grades = {
+    "수학": 95,
+    "영어": 88,
+    "과학": 92,
+    "국어": 79,
+    "역사": 85
+}
+
+# 1) 전체 평균 구하기
+total = 0
+for subject, score in grades.items():
+    total += score
+average = total / len(grades)
+print(f"평균: {average:.1f}")
+
+# 2) 90점 이상인 과목만 출력하기
+print("90점 이상 과목:")
+for subject, score in grades.items():
+    if score >= 90:         # 90점 이상일 때만 출력
+        print(f"  - {subject}: {score}점")
+
+
+# return 없을 때 → 함수 밖에서 결과를 사용할 수 없음
+def formula_no_return(a, b):
+    c = (a**2) + (b**2)
+    print("함수 안:", c)     # 출력은 되지만...
+
+result = formula_no_return(2, 4)
+print("함수 밖:", result)    # None ← 반환값이 없으면 None!
+
+print()
+
+# return 있을 때 → 결과를 변수에 저장 가능
+def formula_with_return(a, b):
+    c = (a**2) + (b**2)
+    return c                 # 값을 반환!
+
+result = formula_with_return(2, 4)
+print("함수 밖:", result)    # 20 ← 정상적으로 값을 받음
+
+
+https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html
+
+
+2~3, 4개의 코드를 다 사용하면 편의성에서 다 떨어진다
+고수(메서드 공식문서)는 그런것들 다 하나만 설정하면 다 되게 설정
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

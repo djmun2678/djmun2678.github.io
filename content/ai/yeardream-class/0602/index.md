@@ -392,4 +392,4 @@ analytics_team = AnalyticsTeam(budget=25000, tools=["Python", "Tableau", "BigQue
 
 ## 수업 내용 필기 첨부 파일
 
-- [0602필기 다운로드(아직 없음)](files/0602_필기.txt)
+- [0602필기 다운로드](files/0602_필기.txt)

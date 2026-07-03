@@ -127,4 +127,4 @@ error: Failed to spawn: `python`
 
 ## 수업 내용 필기 첨부 파일
 
-- [0529필기 다운로드(아직 없음)](files/0529_필기.txt)
+- [0529필기 다운로드](files/0529_필기.txt)

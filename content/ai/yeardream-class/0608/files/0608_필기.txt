@@ -1,0 +1,80 @@
+[1교시]
+
+-- 테이블 생성
+CREATE TABLE users (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    username   TEXT    NOT NULL,
+    email      TEXT    NOT NULL UNIQUE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 데이터 삽입
+INSERT INTO users (username, email) VALUES
+    ('alice',   'alice@example.com'),
+    ('bob',     'bob@example.com'),
+    ('charlie', 'charlie@example.com');
+
+-- 조회
+SELECT * FROM users;
+
+
+tools 아래로 보내는 법
+
+view - Editor Layout - Two Rows
+
+
+
+1. yeardreamschool6th - vs code 열기
+2. datasets 폴더
+3. 임의의 .db 파일 만들기
+4. 접속
+5. 샘플 코드 작성 (제미나이 도움)
+- 테이블 생성, 데이터 추가, 조회 만
+- 테이블 1개만
+- db 종류 : sqlite
+- 간단하게
+- Python 코드 와 같이 나오면 X
+- sqlite 쿼리문만 나오도록
+
+DB 검색 리스트
+https://db-engines.com/en/ranking
+
+
+ERD
+
+SELECT문
+
+쿼리 코드 등 시험
+
+
+
+
+
+
+
+
+name : chinook
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
